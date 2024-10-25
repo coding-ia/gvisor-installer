@@ -11,5 +11,4 @@ cp /artifacts/runsc ${BIN_DIR}
 cp /artifacts/containerd-shim-runsc-v1 ${BIN_DIR}
 cp /artifacts/gvisor.toml ${IMPORTS_DIR}/gvisor.toml
 
-systemctl stop containerd
-systemctl start containerd
+nsenter --target 1 --mount systemctl restart containerd
